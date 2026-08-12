@@ -1,0 +1,41 @@
+services:
+  fast-api:
+    image: hfs7/telemetry-api:v1.0
+  #  build:
+ #     context: .
+#      dockerfile: Dockerfile
+    container_name: api_server
+    ports:
+      - "8000:8000"
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${SECURE_USER}:${SECURE_PASSWORD}@db-server:5432/${SECURE_DB}
+    depends_on:
+      db-server:
+        condition: service_healthy
+    networks:
+      - grid-network
+  db-server:
+    image: postgres:15-alpine
+    container_name: db-server
+    #ports:
+     # - "5432:5432"
+    environment:
+      - POSTGRES_USER=${SECURE_USER}
+      - POSTGRES_PASSWORD=${SECURE_PASSWORD}
+      - POSTGRES_DB=${SECURE_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - grid-network
+volumes:
+  postgres_data:
+networks:
+  grid-network:
+    driver: bridge
+    name: grid-isolated-net

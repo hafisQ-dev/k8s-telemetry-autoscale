@@ -1,0 +1,11 @@
+-Kubernetes Docs.: Concepts > Storage > Persistent Volume > PersistentVolumeClaim
+-Kubernetes Docs.: Concepts > Workloads > Workload_Management > Deployments > Writing a Deployment Spec
+-Kubernetes Docs.: Concepts > Services and Load Balancing and Networking > Service(Defining a Service,Service type )
+-Kubernetes Docs.: Tasks > Inject Data Into Applications > Define Environment Variables for a Container (for env variables details)
+-Kubernetes Docs.: Concepts > Workloads > Horizontal Pod Autoscaling(for HPA)
+-Kubernetes Docs.: Tasks > Run Applications > HorizontalPodAutoscaler Walkthrough
+-Kubernetes Docs.: Concepts > Workloads > Pods > Liveness, Readiness, and Startup Probes(Check mechanisms,Probe results,Configuration fields)
+-Kubernetes Docs.: Tasks > Configure Pods and Containers > Configure a Pod to Use a ConfigMap
+-Kubernetes Docs.: Tasks > Inject Data Into Applications > Distribute Credentials Securely Using Secrets
+-Locust Docs.: Writing a locustfile (HttpUser)
+-DockerHub-postgres: Environment Variables
