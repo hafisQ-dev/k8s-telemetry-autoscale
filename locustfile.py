@@ -3,10 +3,10 @@ from locust import HttpUser, between, task
 class TelemetryUser(HttpUser):
     wait_time = between(1, 2)
 
-    # Fonksiyon adı: trafo_verisi_gonder (Anlamlı herhangi bir isim)
+    # Function name: send_trafe_data (any meaningful name)
     @task
-    def trafo_verisi_gonder(self):
-        # Gerçek iş yükü: Telemetri endpoint'ine POST isteği atar
+    def send_trafo_data(self):
+        # Real work load: Telemetri endpoint'ine POST isteği atar
         payload = {
             "voltage": 220,
             "current": 15,
