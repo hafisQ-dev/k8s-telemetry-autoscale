@@ -1,4 +1,4 @@
-# ⚡ k8s-telemetry-autoscale
+# ⚡ High-Availability Substation Cluster
 
 > **Scalable Infrastructure on Kubernetes (Minikube) with Locust Load Testing**  
 > A resilient, self-healing telemetry ingestion pipeline for power transformers built with FastAPI, PostgreSQL, and HPA auto-scaling.
