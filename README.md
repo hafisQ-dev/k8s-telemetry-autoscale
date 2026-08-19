@@ -58,9 +58,9 @@ Ensure you have the following tools installed locally:
 ### Installation and Run
 
 1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/your-username/k8s-telemetry-autoscale.git](https://github.com/your-username/k8s-telemetry-autoscale.git)
-   cd k8s-telemetry-autoscale
+```bash
+git clone [https://github.com/your-username/k8s-telemetry-autoscale.git](https://github.com/your-username/k8s-telemetry-autoscale.git)
+cd k8s-telemetry-autoscale
 
 ```
 
@@ -101,9 +101,24 @@ locust -f tests/locustfile.py --host=$(minikube ip):30080
 
 ## 📊 3. Performance and Results
 
+### 📈 Load Test Metrics (Locust Simulation)
+Below is the real-time performance graph captured from the Locust dashboard during the maximum traffic simulation:
+
+<p align="center">
+  <img width="750" alt="Locust Load Test Performance Graph" src="https://github.com/user-attachments/assets/1526e006-4cd7-4d50-bb80-adf037a7bc2f" />
+</p>
+
+* **RPS vs. Response Time:** As total requests per second (RPS) scaled up during the stress test, the system maintained low latencies without throwing HTTP 5xx errors.
 * **Self-Healing Verification:** Intentionally killing a running FastAPI pod resulted in automatic replacement by Kubernetes in **< 3 seconds** with zero data loss.
 * **Auto-Scaling Response:** Under Locust stress test conditions (500+ concurrent user simulation), HPA successfully scaled FastAPI replicas from **1 to 5 pods**, keeping API response latencies below **45ms**.
 * **Validation Overhead:** Pydantic runtime checks added negligible latency (< 2ms per request) while catching 100% of malformed telemetry payloads during stress runs.
+
+---
+
+
+## 📚 References & Notes
+
+This project was built following official Kubernetes, Locust, and Docker documentation. A structured list of all technical references, documentation paths (Persistent Volumes, HPA, Probes, Secrets, ConfigMaps, etc.), and implementation notes used during development can be found in the [`notes.txt`](notes.txt) file in the root directory.
 
 ---
 
