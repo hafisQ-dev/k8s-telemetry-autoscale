@@ -59,7 +59,7 @@ Ensure you have the following tools installed locally:
 
 1. **Clone the repository:**
 ```bash
-git clone [https://github.com/your-username/k8s-telemetry-autoscale.git](https://github.com/your-username/k8s-telemetry-autoscale.git)
+git clone https://github.com/hafisQ-dev/k8s-telemetry-autoscale.git
 cd k8s-telemetry-autoscale
 
 ```
